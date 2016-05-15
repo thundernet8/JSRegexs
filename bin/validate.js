@@ -1,5 +1,5 @@
 /**
- * Generated on Sun May 15 2016 19:15:10 GMT+0800 (CST) by Wuxueqian
+ * Generated on Sun May 15 2016 19:42:12 GMT+0800 (CST) by Wuxueqian
  * @version v1.0.0
  * @link https://github.com/thundernet8/JSRegexs#readme
  * @license MIT LICENSE
@@ -112,37 +112,40 @@
                 }
 
                 if(!reg.test(str)){
-                    return false
+                    return false;
                 }else{
-                    var S = parseInt(str.substr(0,1))
-                        + parseInt(str.substr(10,1))*7
-                        + parseInt(str.substr(1,1))
-                        + parseInt(str.substr(11,1))*9
-                        + parseInt(str.substr(2,1))
-                        + parseInt(str.substr(12,1))*10
-                        + parseInt(str.substr(3,1))
-                        + parseInt(str.substr(13,1))*5
-                        + parseInt(str.substr(4,1))
-                        + parseInt(str.substr(14,1))*8
-                        + parseInt(str.substr(5,1))
-                        + parseInt(str.substr(15,1))*4
-                        + parseInt(str.substr(6,1))
-                        + parseInt(str.substr(16,1))*2
-                        + parseInt(str.substr(7,1))
+                    //通过前17位数字计算第18位数字校验码
+                    //S = Sum(Ai * Wi), i = 0, ... , 16 ，先对前17位数字的权求和
+                    //Ai:表示第i位置上的身份证号码数字值(0~9)
+                    //Wi:7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 （表示第i位置上的加权因子）
+                    var S = parseInt(str.substr(0,1))*7
+                        + parseInt(str.substr(1,1))*9
+                        + parseInt(str.substr(2,1))*10
+                        + parseInt(str.substr(3,1))*5
+                        + parseInt(str.substr(4,1))*8
+                        + parseInt(str.substr(5,1))*4
+                        + parseInt(str.substr(6,1))*2
+                        + parseInt(str.substr(7,1))*1
                         + parseInt(str.substr(8,1))*6
-                        + parseInt(str.substr(9,1))*3;
+                        + parseInt(str.substr(9,1))*3
+                        + parseInt(str.substr(10,1))*7
+                        + parseInt(str.substr(11,1))*9
+                        + parseInt(str.substr(12,1))*10
+                        + parseInt(str.substr(13,1))*5
+                        + parseInt(str.substr(14,1))*8
+                        + parseInt(str.substr(15,1))*4
+                        + parseInt(str.substr(16,1))*2;
 
                     var Y = S % 11;
                     var M = "F";
                     var JYM = "10X98765432";
                     M = JYM.substr(Y,1); //校验位
                     return M===str.substr(17,1).toUpperCase()
-                };
+                }
                 break;
 
             default:
                 return false;
-                break;
         }
 
         return false;

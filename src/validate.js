@@ -157,7 +157,6 @@
         VERSION: '1.0.0',
 
         /* 判断是否是手机号码 */
-
         isValidPhoneNum: isValidPhoneNum,
 
         /* 判断是否正确邮箱格式 */

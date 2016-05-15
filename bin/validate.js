@@ -1,5 +1,5 @@
 /**
- * Generated on Sun May 15 2016 19:42:12 GMT+0800 (CST) by Wuxueqian
+ * Generated on Sun May 15 2016 19:58:04 GMT+0800 (CST) by Wuxueqian
  * @version v1.0.0
  * @link https://github.com/thundernet8/JSRegexs#readme
  * @license MIT LICENSE
@@ -164,7 +164,6 @@
         VERSION: '1.0.0',
 
         /* 判断是否是手机号码 */
-
         isValidPhoneNum: isValidPhoneNum,
 
         /* 判断是否正确邮箱格式 */

@@ -15,7 +15,7 @@
 
     /* 手机号码验证 */
     var isValidPhoneNum = function(str){
-        //手机号以13, 15, 18开头, 第3位不固定, 再尾随8位数字
+        //手机号以13, 15, 17, 18开头, 第3位不固定, 再尾随8位数字
         var reg = new RegExp(/^((13[0-9])|(147)|(15[^4,\D])|(17[0-9])|(18[0,0-9]))\d{8}$/);
         if(typeof str === 'string') return reg.test(str);
         return reg.test(str.toString());
@@ -38,7 +38,7 @@
 
     /* 车牌号码验证 */
     var isValidCarNo = function(str){
-        //不包括起始中文字符
+        //不包括起始省直辖市简称中文字符
         var reg = new RegExp(/^[A-Za-z]{1}[A-Za-z_0-9]{5}$/);
         if(typeof str === 'string') return reg.test(str);
         return reg.test(str.toString());
@@ -153,7 +153,6 @@
 
     validate = {
         /* Version num */
-
         VERSION: '1.0.0',
 
         /* 判断是否是手机号码 */
@@ -189,7 +188,7 @@
     g.validate = validate;
     g.V = validate;
 
-    /* 为String原始类型添加原型函数 */
+    /* 为String添加原型函数 */
     String.prototype.isValidPhoneNum = function(){return isValidPhoneNum(this);};
     String.prototype.isValidEmail = function(){return isValidEmail(this);};
     String.prototype.isValidUrl = function(){return isValidUrl(this);};
@@ -200,7 +199,7 @@
     String.prototype.isValidIdCardNum = function(){return isValidIdCardNum(this);};
     String.prototype.isValidTaxNo = function(){return isValidTaxNo(this);};
 
-    /* 为Number原始类型添加原型函数 */
+    /* 为Number添加原型函数 */
     Number.prototype.isValidPhoneNum = function(){return isValidPhoneNum(this);};
     Number.prototype.isValidPostalCode = function(){return isValidPostalCode(this);};
 
